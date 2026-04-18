@@ -1,0 +1,143 @@
+:root {
+    --text-color: #fff;
+    --primary-color: #333;
+    --background-color-div: #1e1e1e;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+
+    background-image: url('https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUybWJtbGsybHVxeWIzbHMxMmFxOGpvYXY3YmI5emo5bHh2eXQ0OWl5OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PbOaO2fedzQLm/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-color);
+}
+
+.gradient {
+    width: 100%;
+    height: auto;
+}
+
+.card-container {
+    display: flexbox;
+    height: auto;
+
+}
+
+.card-container img {
+    max-width: 40%;
+    margin: 10px;
+    border: #333 solid 5px;
+}
+
+.login-container {
+    padding: 5px 20px;
+    width: 40%;
+    margin-bottom: 60px;
+
+}
+
+.login-credentials {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+.card-container h1 {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+
+.text-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+
+
+.description {
+    background-repeat: no-repeat;
+    background-color: var(--background-color-div);
+
+    background-size: cover;
+    height: auto;
+    width: auto;
+
+    margin-bottom: 80px;
+
+    transform: skewY(-4deg);
+
+
+}
+
+.description-info {
+
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 40px 10px 10px 20px;
+    padding: 90px 10px;
+}
+
+.description-info img {
+    height: 300px;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.description-info div {
+    flex: 1;
+}
+
+
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+
+}
+
+.information-project {
+    position: relative;
+    display: flex;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    width: auto;
+    height: auto;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    display: flex;
+    height: 700px;
+    width: 900px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 50px auto;
+
+}
+
+.img-container img {
+    height: 700px;
+    width: 900px;
+
+}
