@@ -1,0 +1,77 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.jar
+
+### Java ###
+*.class
+*.log
+
+### Spring Boot ###
+logs/
+*.log
+*.out
+
+### Package Files ###
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### System Files ###
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+### Environment / Secrets ###
+.env
+*.env
+application-local.properties
+application-local.yml
+
+### IDE - STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Coverage / Reports ###
+coverage/
+*.lcov
+jacoco.exec
+surefire-reports/
+
+### Temporary files ###
+*.tmp
+*.swp
+*.swo
+
+### OS temp ###
+*.pid
+*.seed
+*.cache
