@@ -16,7 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
-       /* return httpSecurity
+       /*
+       return httpSecurity
                 .authorizeHttpRequests(r -> {
                     r.requestMatchers(HttpMethod.GET,"/", "/hello").permitAll();
                     r.anyRequest().authenticated();
@@ -27,12 +28,9 @@ public class SecurityConfig {
         */
         return httpSecurity
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(r -> {
-                    r.requestMatchers("/usuarios/**").permitAll();
-                    r.anyRequest().authenticated();
-                })
-                .formLogin(Customizer.withDefaults())
-                .oauth2Login(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                )
                 .build();
     }
 
