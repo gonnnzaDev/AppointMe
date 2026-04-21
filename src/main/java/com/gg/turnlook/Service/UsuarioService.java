@@ -1,6 +1,8 @@
 package com.gg.turnlook.Service;
 
+import com.gg.turnlook.Model.Rol;
 import com.gg.turnlook.Model.Usuario;
+import com.gg.turnlook.Repository.RolRepository;
 import com.gg.turnlook.Repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,15 +15,22 @@ import java.util.Optional;
 public class UsuarioService {
 
     private final UsuarioRepository usRepo;
+    private final RolRepository rolRepo;
     private final PasswordEncoder passEncoder;
 
-    public UsuarioService(UsuarioRepository usRepo, PasswordEncoder passEncoder) {
+    public UsuarioService(UsuarioRepository usRepo,RolRepository rolRepo, PasswordEncoder passEncoder) {
         this.usRepo = usRepo;
+        this.rolRepo = rolRepo;
         this.passEncoder = passEncoder;
     }
 
     public Usuario crearUsuario(Usuario u) {
+        Optional<Rol> rol = rolRepo.findByNombre("CLIENTE");
+        if(rol.isEmpty()){
+            throw new RuntimeException("El rol no existe");
+        }
         u.setPassword(passEncoder.encode(u.getPassword()));
+        u.getRoles().add(rol.get());
         return usRepo.save(u);
     }
 

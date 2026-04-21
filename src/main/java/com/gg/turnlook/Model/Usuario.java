@@ -1,8 +1,11 @@
 package com.gg.turnlook.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
@@ -12,7 +15,8 @@ public class Usuario {
     /// ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;  /// (PK BDD)
+    private Integer id;
+    /// (PK BDD)
 
     @Column(nullable = false)
     private String nombre;
@@ -31,6 +35,15 @@ public class Usuario {
 
     @Column(nullable = false)
     private boolean activo = true;
+
+    @ManyToMany()
+    @JoinTable(
+            name = "usuario_roles",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id")
+    )
+    @JsonIgnoreProperties("usuarios")
+    private Set<Rol> roles = new HashSet<>();
 
     @PrePersist
     public void prePersist() {
@@ -116,6 +129,14 @@ public class Usuario {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public Set<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
     }
 
     /// METODOS
